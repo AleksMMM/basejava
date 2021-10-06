@@ -4,6 +4,7 @@
 public class ArrayStorage {
     Resume[] storage = new Resume[10000];
 
+
     void clear() {
         for (int i = 0; i < storage.length; i++) {
             if (storage[i] != null) {
@@ -37,16 +38,14 @@ public class ArrayStorage {
             if (storage[i + 1] != null) {
                 storage[i] = storage[i + 1];
             }
-
         }
-
     }
 
     /**
      * @return array, contains only Resumes in storage (without null)
      */
     Resume[] getAll() {
-        ;
+
         for (int i = 0; i < storage.length; i++) {
             if (storage[i] != null) {
                 storage[i] = storage[i];
@@ -58,9 +57,10 @@ public class ArrayStorage {
     int size() {
         int count = 0;
         for (int i = 0; i < storage.length; i++) {
-            if (storage[i] != null) {
-                count++;
+            if (storage[i] == null) {
+                break;
             }
+            count++;
         }
         return count;
     }
